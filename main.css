@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+  }
+body {
+    background-color: crimson;
+}
+.navbar {
+    background-color: blue;
+    width: 100%;
+    float: left;
+    height: 50px;
+    top: 0;
+    min-width: 0;
+    position: fixed;
+    width: 100%;
+    height: auto;
+}
+.navbarlogo {
+    background-image: url(/Images/cchprintinglogo.jpg);
+    width: 350px;
+    height: 40px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid red
+}
+.navmenus {
+}
+
+@media screen and (max-width: 420px) {
+    .navbar {
+        background-color: red;
+    }
+    .navbarlogo {
+        background-image: url(/Images/St.\ Xavier\ University\ Pen\ [182646].jpg);
+        width: 350px;
+        height: 490px;
+        border: 1px solid rgb(47, 0, 255);
+        transition: all 2s;
+    }
+    body {
+        background-color: aqua;
+    }
+}
