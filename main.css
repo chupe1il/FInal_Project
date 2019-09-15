@@ -23,7 +23,7 @@ body {
 }
 .navbarlogo {
     background-image: url(/Images/cchprintinglogo.jpg);
-    width: 10%;
+    width: 40%;
     height: 100%;
     float: left;
     background-repeat: no-repeat;
@@ -37,6 +37,7 @@ body {
     font-size: 20px;
     padding: 20px; 
     text-decoration: none;
+    /* max-width: 400px; */
 }
 /* Buttons */
 .mainBtn {
