@@ -1,3 +1,14 @@
+/* All master stuff is up here */
+button {
+    background-color: aqua;
+    padding: 1%;
+    font-size: 15px;
+    transition-duration: .4s;
+}
+button:hover {
+    background-color: blue;
+}
+
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
@@ -8,12 +19,12 @@ body {
     /* width: 100%; */
 }
 .navbar {
-    display: block;
+    /* display: block; */
     /* position: sticky; */
     background-color: rgb(0, 195, 255);
     width: 100%;
     /* float: left; */
-    height: 50px;
+    /* height: 50px; */
     top: 0;
     min-width: 0;
     /* position: fixed; */
@@ -24,20 +35,22 @@ body {
 .navbarlogo {
     background-image: url(/Images/cchprintinglogo.jpg);
     width: 40%;
-    height: 100%;
+    height: 50px; /* need help with this */
     float: left;
     background-repeat: no-repeat;
     background-size: contain;
     border: 1px solid red
 }
-.navmenus ul li a {
+.navmenus a {
     /* display: inline; */
     float: right;
     color: white;
     font-size: 20px;
-    padding: 20px; 
+    padding: 15px;  /* having trouble with this too */
+    margin: 0px; /* not sure if this does anything */
     text-decoration: none;
     /* max-width: 400px; */
+    transition-duration: .4s;
 }
 /* Buttons */
 .mainBtn {
@@ -55,25 +68,33 @@ ul {
     display: flex;
     list-style: none;
     justify-content: space-between;
+    background-color: green;
     /* align-items: center; */
   }
+  ul a:hover {
+      background-color: blue;
+  }
+  
   /* ul li,  ul li a {
     color: black;
     font-size: 20px;
     text-decoration: none;
   } */
 .main {
+    color: white;
+    background-image:  url(/Images/img_lights.jpg);
+    background-size: cover;
     position: relative;
     height: 500px;
     /* width: 100%; */
-    border: solid 3px red;
+    border: solid 3px green;
     margin-top: 15px;
 }
 .about, .services, .ourWork {
     position: relative;
     height: 250px;
     /* width: 100%; */
-    border: solid 3px red;
+    border: solid 3px green;
     margin-top: 15px;
 }
 footer {
