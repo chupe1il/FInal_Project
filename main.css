@@ -32,8 +32,8 @@ body {
     /* height: auto; */
     /* margin-bottom: 15px; */
 }
-.navbarlogo {
-    background-image: url(/Images/cchprintinglogo.jpg);
+.navbarlogo a img {
+    /* background-image: url(/Images/cchprintinglogo.jpg); */
     width: 40%;
     height: 50px; /* need help with this */
     float: left;
@@ -43,7 +43,7 @@ body {
 }
 .navmenus a {
     /* display: inline; */
-    float: right;
+    /* float: right; */
     color: white;
     font-size: 20px;
     padding: 15px;  /* having trouble with this too */
@@ -67,11 +67,12 @@ body {
 ul {
     display: flex;
     list-style: none;
-    justify-content: space-between;
+    justify-content: flex-end;
     background-color: green;
     /* align-items: center; */
+    padding: 15px;
   }
-  ul a:hover {
+  ul:hover {
       background-color: blue;
   }
   
@@ -109,7 +110,7 @@ footer {
         background-color: red;
     }
     .navbarlogo {
-        background-image: url(/Images/St.\ Xavier\ University\ Pen\ [182646].jpg);
+        background-image: url(/Images/SXUPen.jpg);
         width: 350px;
         height: 490px;
         border: 1px solid rgb(47, 0, 255);
