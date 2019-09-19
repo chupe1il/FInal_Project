@@ -1,12 +1,12 @@
 /* All master stuff is up here */
 button {
-    background-color: aqua;
+    background-color: #0066ff;;
     padding: 1%;
     font-size: 15px;
     transition-duration: .4s;
 }
 button:hover {
-    background-color: blue;
+    background-color: #053efa;
 }
 
 * {
@@ -18,10 +18,12 @@ body {
     background-color: white;
     /* width: 100%; */
 }
+
+/* The Header / Navigation bar stuff is below */
 .navbar {
     /* display: block; */
     /* position: sticky; */
-    background-color: rgb(0, 195, 255);
+    background-color: #0066ff;
     width: 100%;
     /* float: left; */
     /* height: 50px; */
@@ -52,6 +54,28 @@ body {
     /* max-width: 400px; */
     transition-duration: .4s;
 }
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    /* background-color: green; */
+    /* align-items: center; */
+    padding: 15px;
+    }
+    li:hover {
+        background-color: blue;
+    }
+    li:active {
+        text-decoration-line: underline
+    }
+    /* Not sure if I need this part */
+    /* ul li,  ul li a {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    } */
+
 /* Buttons */
 .mainBtn {
     position: absolute;
@@ -60,63 +84,63 @@ body {
 }
 .aboutBtn, .servicesBtn, .ourWorkBtn {
     position: absolute;
-    top: 50%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, -50%)
 }
-ul {
-    display: flex;
-    list-style: none;
-    justify-content: flex-end;
-    background-color: green;
-    /* align-items: center; */
-    padding: 15px;
-  }
-  ul:hover {
-      background-color: blue;
-  }
-  
-  /* ul li,  ul li a {
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-  } */
 .main {
     color: white;
     background-image:  url(/Images/img_lights.jpg);
     background-size: cover;
     position: relative;
-    height: 500px;
+    height: 700px;
     /* width: 100%; */
     border: solid 3px green;
     margin-top: 15px;
 }
-.about, .services, .ourWork {
+.about, .services, .ourWork, about h2 {
+    color: #262626;
     position: relative;
-    height: 250px;
+    text-align: center;
+    height: 350px;
     /* width: 100%; */
-    border: solid 3px green;
-    margin-top: 15px;
+    /* border: solid 3px green; */
+    /* padding-top: 15px; */
+    padding: 15px 100px 15px 100px;
+}
+.services {
+    color: white;
+    position: relative;
+ background-color: #262626;
 }
 footer {
+    display: flex;
     height: 250px;
     /* width: 100%; */
-    background-color: cyan;
-    margin-top: 15px;  
+    background-color: #262626;
+    color: white;
+    padding: 25px;  
 }
+.footerCol {
+    flex:1;
+    background-color: #323232;
+    margin: 15px;
 }
-@media screen and (max-width: 420px) {
+
+@media  (max-width: 600px) {
     .navbar {
-        background-color: red;
+        
     }
     .navbarlogo {
-        background-image: url(/Images/SXUPen.jpg);
-        width: 350px;
-        height: 490px;
-        border: 1px solid rgb(47, 0, 255);
+        /* background-image: url(/Images/SXUPen.jpg); */
+        /* width: 350px; */
+        /* height: 490px; */
+        /* border: 1px solid rgb(47, 0, 255); */
         transition: all 2s;
     }
-    body {
-        background-color: aqua;
+    footer, .footerCol {
+        display: block;
+        justify-content: space-between;
+        width: 100%;     
     }
 }
