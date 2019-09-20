@@ -5,7 +5,7 @@ button {
     font-size: 15px;
     transition-duration: .4s;
 }
-button:hover {
+button:hover a{
     background-color: #053efa;
 }
 
@@ -21,23 +21,17 @@ body {
 
 /* The Header / Navigation bar stuff is below */
 .navbar {
-    /* display: block; */
-    /* position: sticky; */
+
     background-color: #0066ff;
     width: 100%;
-    /* float: left; */
-    /* height: 50px; */
-    top: 0;
-    min-width: 0;
-    /* position: fixed; */
-    width: 100%;
+    font-size: 2.1vw;
     /* height: auto; */
     /* margin-bottom: 15px; */
 }
 .navbarlogo a img {
     /* background-image: url(/Images/cchprintinglogo.jpg); */
-    width: 40%;
-    height: 50px; /* need help with this */
+    /* width: 40%; */
+    height: 50px; 
     float: left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -47,24 +41,25 @@ body {
     /* display: inline; */
     /* float: right; */
     color: white;
-    font-size: 20px;
+    /* font-size: 20px; */
     padding: 15px;  /* having trouble with this too */
-    margin: 0px; /* not sure if this does anything */
+    /* margin: 0px; not sure if this does anything */
     text-decoration: none;
     /* max-width: 400px; */
-    transition-duration: .4s;
+    transition-duration: .4s; /* not functioal for now */
 }
 
 ul {
     display: flex;
+    margin: 0;
     list-style: none;
     justify-content: flex-end;
     /* background-color: green; */
     /* align-items: center; */
     padding: 15px;
     }
-    li:hover {
-        background-color: blue;
+    li:hover a{
+        background-color: #053efa;
     }
     li:active {
         text-decoration-line: underline
@@ -79,8 +74,8 @@ ul {
 /* Buttons */
 .mainBtn {
     position: absolute;
-    bottom: 20%;
-    right: 20%;
+    bottom: calc(0% + 25%);
+    right: calc(0% + 10%);
 }
 .aboutBtn, .servicesBtn, .ourWorkBtn {
     position: absolute;
@@ -88,15 +83,29 @@ ul {
     left: 50%;
     transform: translate(-50%, -50%)
 }
+h3 {
+    margin: 0%;
+}
 .main {
+    /* display: inline-block; */
+    float: left;
     color: white;
-    background-image:  url(/Images/img_lights.jpg);
+    background-image:  url(/Images/MainPic1.webp);
     background-size: cover;
-    position: relative;
-    height: 700px;
+    background-position: center;
+    /* background-size: 100%; */
+    background-repeat: no-repeat;
+    /* position: relative; */
+    height: 500px;
     /* width: 100%; */
-    border: solid 3px green;
-    margin-top: 15px;
+    /* border: solid 3px green; */
+    /* margin-top: 15px; */
+}
+.mainTxtBox {
+    font-size: 4vw;
+    font-weight: 700;
+    color: black;
+    margin: 10% 30% 20% 5%;
 }
 .about, .services, .ourWork, about h2 {
     color: #262626;
@@ -113,6 +122,35 @@ ul {
     position: relative;
  background-color: #262626;
 }
+
+.contactUsContainer {
+    display: flex;
+    /* height: 250px; */
+    color: white;
+    padding: 25px; 
+}
+.ContactUsLeft {
+    flex:1;
+    margin: 15px;
+}
+.ContactUsRight {
+    flex:1;
+    margin: 15px 25px 10px 80px;
+    text-align: center;
+}
+form {
+    color: #053efa;
+    margin: 5%;
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 footer {
     display: flex;
     height: 250px;
@@ -121,6 +159,7 @@ footer {
     color: white;
     padding: 25px;  
 }
+
 .footerCol {
     flex:1;
     background-color: #323232;
@@ -137,6 +176,9 @@ footer {
         /* height: 490px; */
         /* border: 1px solid rgb(47, 0, 255); */
         transition: all 2s;
+    }
+    .main {
+        background-size: 100%;
     }
     footer, .footerCol {
         display: block;
