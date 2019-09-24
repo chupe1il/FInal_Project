@@ -27,6 +27,7 @@ body {
     font-size: 2.1vw;
     /* height: auto; */
     /* margin-bottom: 15px; */
+    z-index: 10000;
 }
 .navbarlogo a img {
     /* background-image: url(/Images/cchprintinglogo.jpg); */
@@ -49,7 +50,7 @@ body {
     transition-duration: .4s; /* not functioal for now */
 }
 
-ul {
+nav ul {
     display: flex;
     margin: 0;
     list-style: none;
@@ -74,7 +75,7 @@ ul {
 /* Buttons */
 .mainBtn {
     position: absolute;
-    bottom: calc(0% + 25%);
+    bottom: calc(20% + 25%);
     right: calc(0% + 10%);
 }
 .aboutBtn, .servicesBtn, .ourWorkBtn {
@@ -88,9 +89,9 @@ h3 {
 }
 .main {
     /* display: inline-block; */
-    float: left;
+    /* float: left; */
     color: white;
-    background-image:  url(/Images/MainPic1.webp);
+    background-image:  url(/Images/MainPic1.jpg);
     background-size: cover;
     background-position: center;
     /* background-size: 100%; */
@@ -102,11 +103,113 @@ h3 {
     /* margin-top: 15px; */
 }
 .mainTxtBox {
-    font-size: 4vw;
+    font-size: 5vw;
     font-weight: 700;
     color: black;
     margin: 10% 30% 20% 5%;
 }
+/* The items below are for the Carosuel */
+/* Parent wrapper to carousel. Width can be changed as needed. 
+I'm finding that I don't need anything in here*/
+.carousel-wrapper {
+    /* overflow: hidden; */
+    /* background-size: cover; */
+    /* width: 90%; */
+    /* margin: auto; */
+  }
+    /* Apply 'border-box' to 'box-sizing' so border and padding is included in the width and height. */
+  /* .carousel-wrapper * {
+    /* box-sizing: border-box; - DOn't need this I have it up top*/
+  }
+  
+  /* We'll be using the 'transform' property to move the carousel's items, so setting the 'transform-style' to 'preserve-3d' will make sure our nested elements are rendered properly in the 3D space.   This makes the pictures stack on top of each other*/
+  .carousel {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  
+  /* By default we're hiding items (except the initial one) until the JS initiates. Elements are absolutely positioned with a width of 100% (as we're styling for mobile first), letting the content's height dictate the height of the carousel. Our magic property here for all our animation needs is 'transition', taking the properties we wish to animate 'transform' and 'opacity', along with the length of time in seconds. */
+
+  .carousel__photo {
+    opacity: 0;
+    position: absolute; /* have to have this or the pics don't appear */
+    top:40px; /* this should be 0 - but if zero then the nav bar doesn't work as this is "above" the nav */
+    width: 100%;
+    margin: auto;
+    /* padding: 1rem 4rem;  I took this out as I don't want padding*/
+    z-index: auto; /* this was at 100 - I moved it to auto andnow on the FIRST slide image the nav bar will work - it seems the photos are on top of the nav bar */
+    transition: transform .5s, opacity .5s, z-index .5s;
+  }
+  
+  /* Display the initial item and bring it to the front using 'z-index'. These styles also apply to the 'active' item. */
+  .carousel__photo.initial,
+  .carousel__photo.active {
+    opacity: 1; /* interesting this had to be defined - otherwise the image is totally transparent */
+    position: relative;
+    /* z-index: 900;  - THis doesn't seem to do anything*/
+  }
+  
+  /* Set 'z-index' to sit behind our '.active' item. */
+  .carousel__photo.prev,
+  .carousel__photo.next {
+    /* z-index: 800; Not sure why this is needed*/
+  }
+  
+  /* Translate previous item to the left */
+  .carousel__photo.prev {
+    transform: translateX(-100%);
+  }
+  
+  /* Translate next item to the right */
+  .carousel__photo.next {
+    transform: translateX(10%); /*This slows down a bit */
+  }
+  
+  /* Style navigation buttons to sit in the middle, either side of the carousel. */
+  .carousel__button--prev,
+  .carousel__button--next {
+    position: absolute;
+    top:50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #FFF;
+    transform: translateY(-50%); /* not sure what this does */
+    border-radius: 50%;
+    cursor: pointer; /* This make the cursor change :-) */
+    z-index: 11; /*Sit on top of everything */
+    border: 1px solid black; 
+    /* opacity: 0; Hide buttons until carousel is initialised .... This just hides it all the time - Strange */
+    transition:opacity 1s;*/
+  }
+  
+  .carousel__button--prev {
+    left: 30px;
+  }
+  
+  .carousel__button--next {
+    right:30px;
+  }
+  
+  /* Use pseudo elements to insert arrows inside of navigation buttons */
+  .carousel__button--prev::after,
+  .carousel__button--next::after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 54%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+  
+  .carousel__button--next::after {
+    /* left: 47%; */
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
 .about, .services, .ourWork, about h2 {
     color: #262626;
     position: relative;
@@ -164,8 +267,12 @@ footer {
     flex:1;
     background-color: #323232;
     margin: 15px;
+    padding: 10px;
 }
-
+.footerCol ul li a {
+    line-height:  32px;
+    color: white;
+}
 @media  (max-width: 600px) {
     .navbar {
         
