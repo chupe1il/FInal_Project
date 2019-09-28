@@ -129,7 +129,7 @@
       moving = false;
     }
   
-    // make it rain
+    // make it rain :-)!!
     initCarousel();
   
   }(document));

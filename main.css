@@ -24,16 +24,17 @@ body {
 
     background-color: #0066ff;
     width: 100%;
-    font-size: 2.1vw;
+    font-size: 1.8vw;
     /* height: auto; */
     /* margin-bottom: 15px; */
-    z-index: 10000;
+    /* z-index: 10000; */
 }
 .navbarlogo a img {
     /* background-image: url(/Images/cchprintinglogo.jpg); */
     /* width: 40%; */
-    height: 50px; 
     float: left;
+    max-height: 40px;
+    margin: 5px 0px 5px 50px;
     background-repeat: no-repeat;
     background-size: contain;
     border: 1px solid red
@@ -43,7 +44,7 @@ body {
     /* float: right; */
     color: white;
     /* font-size: 20px; */
-    padding: 15px;  /* having trouble with this too */
+    padding: 15px;  /*having trouble with this too */
     /* margin: 0px; not sure if this does anything */
     text-decoration: none;
     /* max-width: 400px; */
@@ -52,25 +53,26 @@ body {
 
 nav ul {
     display: flex;
-    margin: 0;
+    margin: 0px;
     list-style: none;
     justify-content: flex-end;
     /* background-color: green; */
     /* align-items: center; */
     padding: 15px;
     }
-    li:hover a{
-        background-color: #053efa;
-    }
-    li:active {
-        text-decoration-line: underline
-    }
-    /* Not sure if I need this part */
-    /* ul li,  ul li a {
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    } */
+    
+li:hover a{
+    background-color: #053efa;
+}
+li:active {
+    text-decoration-line: underline
+}
+/* Not sure if I need this part */
+/* ul li,  ul li a {
+color: black;
+font-size: 20px;
+text-decoration: none;
+} */
 
 /* Buttons */
 .mainBtn {
@@ -79,47 +81,57 @@ nav ul {
     right: calc(0% + 10%);
 }
 .aboutBtn, .servicesBtn, .ourWorkBtn {
-    position: absolute;
+    position: relative;
     bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%)
+    margin: 10px;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%) */
 }
 h3 {
     margin: 0%;
 }
-.main {
+/* .main { */
     /* display: inline-block; */
     /* float: left; */
-    color: white;
-    background-image:  url(/Images/MainPic1.jpg);
-    background-size: cover;
-    background-position: center;
+    /* color: white; */
+    /* background-image:  url(/Images/MainPic1.jpg); */
+    /* background-size: cover; */
+    /* background-position: center; */
     /* background-size: 100%; */
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     /* position: relative; */
-    height: 500px;
+    /* height: 500px; */
     /* width: 100%; */
     /* border: solid 3px green; */
     /* margin-top: 15px; */
-}
-.mainTxtBox {
+/* } */
+/* .mainTxtBox {
     font-size: 5vw;
     font-weight: 700;
     color: black;
     margin: 10% 30% 20% 5%;
-}
+} */
 /* The items below are for the Carosuel */
 /* Parent wrapper to carousel. Width can be changed as needed. 
 I'm finding that I don't need anything in here*/
 .carousel-wrapper {
-    /* overflow: hidden; */
+    overflow: hidden;
     /* background-size: cover; */
     /* width: 90%; */
     /* margin: auto; */
-  }
+
     /* Apply 'border-box' to 'box-sizing' so border and padding is included in the width and height. */
   /* .carousel-wrapper * {
-    /* box-sizing: border-box; - DOn't need this I have it up top*/
+    /* /* box-sizing: border-box; - DOn't need this I have it up top */
+  }
+  .carouselText {
+    position: absolute;
+    font-size: 5vw;
+    font-weight: 700;
+    color: white;
+    margin: 5% 30% 20% 10%;
+    text-shadow: 2px 2px 4px #000000;
+    z-index: 1;
   }
   
   /* We'll be using the 'transform' property to move the carousel's items, so setting the 'transform-style' to 'preserve-3d' will make sure our nested elements are rendered properly in the 3D space.   This makes the pictures stack on top of each other*/
@@ -134,9 +146,9 @@ I'm finding that I don't need anything in here*/
   .carousel__photo {
     opacity: 0;
     position: absolute; /* have to have this or the pics don't appear */
-    top:40px; /* this should be 0 - but if zero then the nav bar doesn't work as this is "above" the nav */
+    top: 0px; /* this should be 0 - but if zero then the nav bar doesn't work as this is "above" the nav */
     width: 100%;
-    margin: auto;
+    /* margin: auto; */
     /* padding: 1rem 4rem;  I took this out as I don't want padding*/
     z-index: auto; /* this was at 100 - I moved it to auto andnow on the FIRST slide image the nav bar will work - it seems the photos are on top of the nav bar */
     transition: transform .5s, opacity .5s, z-index .5s;
@@ -147,7 +159,7 @@ I'm finding that I don't need anything in here*/
   .carousel__photo.active {
     opacity: 1; /* interesting this had to be defined - otherwise the image is totally transparent */
     position: relative;
-    /* z-index: 900;  - THis doesn't seem to do anything*/
+    /* z-index: 900;  - THis doesn't seem to do anything - Acutally if I make it active it hides the buttons */
   }
   
   /* Set 'z-index' to sit behind our '.active' item. */
@@ -210,11 +222,11 @@ I'm finding that I don't need anything in here*/
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
-.about, .services, .ourWork, about h2 {
+.about, .services, .ourWork, .about h2 {
     color: #262626;
     position: relative;
     text-align: center;
-    height: 350px;
+    /* height: 350px; */
     /* width: 100%; */
     /* border: solid 3px green; */
     /* padding-top: 15px; */
@@ -256,7 +268,7 @@ input {
 }
 footer {
     display: flex;
-    height: 250px;
+    /* height: 250px; */
     /* width: 100%; */
     background-color: #262626;
     color: white;
@@ -290,6 +302,6 @@ footer {
     footer, .footerCol {
         display: block;
         justify-content: space-between;
-        width: 100%;     
+        /* width: 100%;      */
     }
 }
