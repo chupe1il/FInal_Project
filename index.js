@@ -1,6 +1,6 @@
 !(function(d){
     // Variables to target our base class,  get carousel items, count how many carousel items there are, set the slide to 0 (which is the number that tells us the frame we're on), and set motion to true which disables interactivity.
-    var itemClassName = "carousel__photo";
+    var itemClassName = "slide";
         items = d.getElementsByClassName(itemClassName),
         totalItems = items.length,
         slide = 0,
@@ -44,43 +44,57 @@
         disableInteraction();
   
         // Preemptively set variables for the current next and previous slide, as well as the potential next or previous slide.
-        var newPrevious = slide - 1,
-            newNext = slide + 1,
-            oldPrevious = slide - 2,
-            oldNext = slide + 2;
+        // var newPrevious = slide - 1,
+        //     newNext = slide + 1,
+        //     oldPrevious = slide - 2,
+        //     oldNext = slide + 2;
   
-        // Test if carousel has more than three items
-        if ((totalItems - 1) > 3) {
+        // // Test if carousel has more than three items
+        // // if ((totalItems - 1) > 3) {
   
-          // Checks if the new potential slide is out of bounds and sets slide numbers
-          if (newPrevious <= 0) {
-            oldPrevious = (totalItems - 1);
-          } else if (newNext >= (totalItems - 1)){
-            oldNext = 0;
-          }
+        //   // Checks if the new potential slide is out of bounds and sets slide numbers
+        //   if (newPrevious <= 0) {
+        //     oldPrevious = (totalItems - 1);
+        //   } else if (newNext >= (totalItems - 1)){
+        //     oldNext = 0;
+        //   }
   
-          // Check if current slide is at the beginning or end and sets slide numbers
-          if (slide === 0) {
-            newPrevious = (totalItems - 1);
-            oldPrevious = (totalItems - 2);
-            oldNext = (slide + 1);
-          } else if (slide === (totalItems -1)) {
-            newPrevious = (slide - 1);
-            newNext = 0;
-            oldNext = 1;
-          }
+        //   // Check if current slide is at the beginning or end and sets slide numbers
+        //   if (slide === 0) {
+        //     newPrevious = (totalItems - 1);
+        //     oldPrevious = (totalItems - 2);
+        //     oldNext = (slide + 1);
+        //   } else if (slide === (totalItems -1)) {
+        //     newPrevious = (slide - 1);
+        //     newNext = 0;
+        //     oldNext = 1;
+        //   }
   
           // Now we've worked out where we are and where we're going, by adding and removing classes, we'll be triggering the carousel's transitions.
   
           // Based on the current slide, reset to default classes.
-          items[oldPrevious].className = itemClassName;
-          items[oldNext].className = itemClassName;
+          Array.from(items).forEach(function(slide){
+            slide.className = itemClassName;
+          })
+          // items[oldPrevious].className = itemClassName;
+          // items[oldNext].className = itemClassName;
   
           // Add the new classes
-          items[newPrevious].className = itemClassName + " prev";
-          items[slide].className = itemClassName + " active";
-          items[newNext].className = itemClassName + " next";
-        }
+          if(slide === 0) {
+            items[slide].classList.add('active');
+            items[slide + 1].classList.add('next')
+            items[items.length - 1].classList.add('prev');
+          } else if(slide === items.length){
+            items[slide].classList.add('active');
+            items[0].classList.add('next')
+            items[slide - 1].classList.add('prev');
+          } else {
+            items[slide].classList.add('active');
+            items[slide + 1].classList.add('next')
+            items[slide - 1].classList.add('prev');
+          }
+         
+        // }
       }
     }
   
@@ -132,4 +146,13 @@
     // make it rain :-)!!
     initCarousel();
   
+  // This is for the nav / hamburger menu
+  function hamburger() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
   }(document));

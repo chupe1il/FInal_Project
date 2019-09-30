@@ -20,36 +20,71 @@ body {
 }
 
 /* The Header / Navigation bar stuff is below */
-.navbar {
+.topnav {
+  overflow: hidden;
+  background-color:#0066ff;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+}
+.topnav a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  /* font-size: 1.8vw; */
+  font-size: 25px;
+  min-height: 80px;
+  line-height: 45px;
+  
+}
+.topnav a:hover {
+  background-color: #053efa;
+  color: black;
+}
+.topnav a.active {
+  background-color: #053efa;
+  color: white;
+}
+.topnav .icon {
+  display: none;
+}
 
-    background-color: #0066ff;
-    width: 100%;
-    font-size: 1.8vw;
+/* .navbar { */
+
+    /* background-color: #0066ff; */
+    /* width: 100%; */
+    /* font-size: 1.8vw; */
+    /* height: 75px; */
     /* height: auto; */
     /* margin-bottom: 15px; */
     /* z-index: 10000; */
-}
-.navbarlogo a img {
+/* } */
+.navbarlogo img{
     /* background-image: url(/Images/cchprintinglogo.jpg); */
     /* width: 40%; */
     float: left;
     max-height: 40px;
     margin: 5px 0px 5px 50px;
-    background-repeat: no-repeat;
-    background-size: contain;
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
     border: 1px solid red
+    
 }
-.navmenus a {
+/* .navmenus a {
     /* display: inline; */
     /* float: right; */
-    color: white;
+    /* color: white; */
     /* font-size: 20px; */
-    padding: 15px;  /*having trouble with this too */
+    padding: 15px;  having trouble with this too
     /* margin: 0px; not sure if this does anything */
-    text-decoration: none;
+    /* text-decoration: none; */
     /* max-width: 400px; */
-    transition-duration: .4s; /* not functioal for now */
-}
+    /* transition-duration: .4s; not functioal for now */
+/* } */
 
 nav ul {
     display: flex;
@@ -89,6 +124,24 @@ text-decoration: none;
 }
 h3 {
     margin: 0%;
+    text-align: center;
+  }
+/* Our Work Page */
+.ourWorkGrid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  margin-top: 80px;
+}
+.ourWorkGridItem {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  /* font-size: 1.8vw; */
+  text-align: center;  
+}
+.ourWorkGridItem:hover {
+  background-color: #053efa
 }
 /* .main { */
     /* display: inline-block; */
@@ -116,14 +169,8 @@ h3 {
 I'm finding that I don't need anything in here*/
 .carousel-wrapper {
     overflow: hidden;
-    /* background-size: cover; */
-    /* width: 90%; */
-    /* margin: auto; */
-
-    /* Apply 'border-box' to 'box-sizing' so border and padding is included in the width and height. */
-  /* .carousel-wrapper * {
-    /* /* box-sizing: border-box; - DOn't need this I have it up top */
-  }
+    margin-top: 40px;
+ }
   .carouselText {
     position: absolute;
     font-size: 5vw;
@@ -139,11 +186,12 @@ I'm finding that I don't need anything in here*/
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    /* Need a height attribute but it's not working right */
   }
   
   /* By default we're hiding items (except the initial one) until the JS initiates. Elements are absolutely positioned with a width of 100% (as we're styling for mobile first), letting the content's height dictate the height of the carousel. Our magic property here for all our animation needs is 'transition', taking the properties we wish to animate 'transform' and 'opacity', along with the length of time in seconds. */
 
-  .carousel__photo {
+  .slide {
     opacity: 0;
     position: absolute; /* have to have this or the pics don't appear */
     top: 0px; /* this should be 0 - but if zero then the nav bar doesn't work as this is "above" the nav */
@@ -153,29 +201,32 @@ I'm finding that I don't need anything in here*/
     z-index: auto; /* this was at 100 - I moved it to auto andnow on the FIRST slide image the nav bar will work - it seems the photos are on top of the nav bar */
     transition: transform .5s, opacity .5s, z-index .5s;
   }
-  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
   /* Display the initial item and bring it to the front using 'z-index'. These styles also apply to the 'active' item. */
-  .carousel__photo.initial,
-  .carousel__photo.active {
+  .slide.initial,
+  .slide.active {
     opacity: 1; /* interesting this had to be defined - otherwise the image is totally transparent */
-    position: relative;
+    /* position: relative; */
     /* z-index: 900;  - THis doesn't seem to do anything - Acutally if I make it active it hides the buttons */
   }
   
   /* Set 'z-index' to sit behind our '.active' item. */
-  .carousel__photo.prev,
-  .carousel__photo.next {
+  .slide.prev,
+  .slide.next {
     /* z-index: 800; Not sure why this is needed*/
   }
   
   /* Translate previous item to the left */
-  .carousel__photo.prev {
+  .slide.prev {
     transform: translateX(-100%);
   }
   
   /* Translate next item to the right */
-  .carousel__photo.next {
-    transform: translateX(10%); /*This slows down a bit */
+  .slide.next {
+    transform: translateX(100%); /*This slows down a bit */
   }
   
   /* Style navigation buttons to sit in the middle, either side of the carousel. */
@@ -222,7 +273,7 @@ I'm finding that I don't need anything in here*/
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
-.about, .services, .ourWork, .about h2 {
+.about, .services, .ourWork {
     color: #262626;
     position: relative;
     text-align: center;
@@ -243,6 +294,7 @@ I'm finding that I don't need anything in here*/
     /* height: 250px; */
     color: white;
     padding: 25px; 
+    margin-top: 50px;
 }
 .ContactUsLeft {
     flex:1;
@@ -254,11 +306,11 @@ I'm finding that I don't need anything in here*/
     text-align: center;
 }
 form {
-    color: #053efa;
+    /* color: #efa; */
     margin: 5%;
 }
 input {
-    width: 100%;
+    min-width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -272,22 +324,22 @@ footer {
     /* width: 100%; */
     background-color: #262626;
     color: white;
-    padding: 25px;  
+    padding: 15px;  
 }
 
 .footerCol {
     flex:1;
     background-color: #323232;
     margin: 15px;
-    padding: 10px;
+    padding: 20px;
 }
-.footerCol ul li a {
-    line-height:  32px;
-    color: white;
+.footerCol, .footerCol ul li a {
+  line-height:  32px;
+  color: white;
 }
-@media  (max-width: 600px) {
-    .navbar {
-        
+
+@media (max-width: 800px) {
+    .navbar {   
     }
     .navbarlogo {
         /* background-image: url(/Images/SXUPen.jpg); */
@@ -296,12 +348,34 @@ footer {
         /* border: 1px solid rgb(47, 0, 255); */
         transition: all 2s;
     }
-    .main {
-        background-size: 100%;
-    }
-    footer, .footerCol {
+    /* .main {
+        background-size: 100%; */
+/* } */
+    footer {
         display: block;
-        justify-content: space-between;
-        /* width: 100%;      */
+        /* justify-content: space-between; */
+        width: 100%;     
     }
+    .ourWorkGrid {
+      display: block;
+    }
+    .topnav a:not(:first-child) {
+      display: none;
+    }
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
 }
