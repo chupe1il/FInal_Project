@@ -18,7 +18,6 @@ body {
     background-color: white;
     /* width: 100%; */
 }
-
 /* The Header / Navigation bar stuff is below */
 .topnav {
   overflow: hidden;
@@ -66,16 +65,15 @@ body {
     /* margin-bottom: 15px; */
     /* z-index: 10000; */
 /* } */
-.navbarlogo a img {
+
+.navbarlogo, .navbarlogo a img {
     /* background-image: url(/Images/cchprintinglogo.jpg); */
     /* width: 40%; */
-    position: absolute;
-    left: 250px;
-    max-height: 40px;
-    /* margin: 5px 0px 5px 50px; */
-    /* background-repeat: no-repeat; */
-    /* background-size: contain; */
-    clear: both;
+    /* position: absolute; */
+    /* left: 250px; */
+    max-height: 45px;
+    float: none;
+
 }
 /* .navmenus a {
     /* display: inline; */
@@ -146,6 +144,31 @@ h3 {
 .ourWorkGridItem:hover {
   background-color: #053efa
 }
+.aboutUsContainer {
+  width: 100%;
+  min-height: 400px;
+  background-color: orange;
+  background-size: cover;
+  background-repeat: none;
+  margin-top: 50px;
+  background-image: url(/Images/Peopleattable.jpg);
+}
+.aboutUsGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+  margin-top: 80px;
+}
+.aboutUsGridItem {
+  /* border: 4px solid black; */
+  /* margin: 20px;
+  padding: 20px; */
+} 
+.aboutUsText {
+  position: absolute;
+  right: 25px; 
+  font-size: 1.9vw;
+}
 /* .main { */
     /* display: inline-block; */
     /* float: left; */
@@ -176,10 +199,10 @@ I'm finding that I don't need anything in here*/
  }
   .carouselText {
     position: absolute;
-    font-size: 5vw;
+    font-size: 6.5vw;
     font-weight: 700;
     color: white;
-    margin: 5% 30% 20% 10%;
+    margin: 8% 30% 20% 10%;
     text-shadow: 2px 2px 4px #000000;
     z-index: 1;
   }
@@ -207,6 +230,7 @@ I'm finding that I don't need anything in here*/
   .slide img {
     width: 100%;
     height: auto;
+    margin-top: 40px;
   }
   /* Display the initial item and bring it to the front using 'z-index'. These styles also apply to the 'active' item. */
   .slide.initial,
@@ -282,6 +306,7 @@ I'm finding that I don't need anything in here*/
     text-align: center;
     /* height: 350px; */
     /* width: 100%; */
+    font-size: 20px;
     /* border: solid 3px green; */
     /* padding-top: 15px; */
     padding: 15px 100px 15px 100px;
@@ -337,12 +362,39 @@ footer {
     padding: 20px;
 }
 .footerCol, .footerCol ul li a {
-  line-height:  32px;
+  list-style: none;
+  color: white;
+  font-size: 24px;
+  line-height: 25px;
+}
+.footercol ul li {
+    list-style: none;
+  }
+/* Font Awesome Icons*/
+.fa {
+  padding: 10px 15px 10px 10px;
+  font-size: 30px;
+  /* width: 50px; */
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa-phone,  {
+}
+.fa-facebook {
+  /* background: #3B5998; */
   color: white;
 }
-
+.fa-linkedin {
+  /* background: #3B5998; */
+  color: white;
+  
+}
 @media (max-width: 800px) {
     .navbar {   
+    }
+    .carousel-wrapper {
+      display:none;
     }
     .navbarlogo {
         /* background-image: url(/Images/SXUPen.jpg); */

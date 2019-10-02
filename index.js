@@ -147,6 +147,8 @@
     initCarousel();
   
   // This is for the nav / hamburger menu
+
+  }(document));
   function hamburger() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -155,4 +157,3 @@
       x.className = "topnav";
     }
   }
-  }(document));
